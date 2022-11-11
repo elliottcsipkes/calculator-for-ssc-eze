@@ -1,6 +1,21 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
+const gridButtons = [
+  "(",
+  ")",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+];
+
 function App() {
   const [screen, setScreen] = useState("");
   const [current, setCurrent] = useState("");
@@ -44,18 +59,13 @@ function App() {
               <button onClick={() => setCurrent("-")}>-</button>
             </div>
             <div className="nums">
-              <button onClick={() => setCurrent("(")}>(</button>
-              <button onClick={() => setCurrent(")")}>)</button>
-              <button onClick={() => setCurrent("1")}>1</button>
-              <button onClick={() => setCurrent("2")}>2</button>
-              <button onClick={() => setCurrent("3")}>3</button>
-              <button onClick={() => setCurrent("4")}>4</button>
-              <button onClick={() => setCurrent("5")}>5</button>
-              <button onClick={() => setCurrent("6")}>6</button>
-              <button onClick={() => setCurrent("7")}>7</button>
-              <button onClick={() => setCurrent("8")}>8</button>
-              <button onClick={() => setCurrent("9")}>9</button>
-              <button onClick={() => setCurrent("0")}>0</button>
+              {gridButtons.map((value, index) => {
+                return (
+                  <button key={index} onClick={() => setCurrent(value)}>
+                    {value}
+                  </button>
+                );
+              })}
             </div>
           </div>
           <div className="dec-equal">
